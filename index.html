@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love Letter for Crush</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -307,8 +310,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         @keyframes fadeInDown {
@@ -316,6 +326,7 @@
                 opacity: 0;
                 transform: translateY(-30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -323,13 +334,23 @@
         }
 
         @keyframes slideUp {
-            0% { top: 0; }
-            100% { top: clamp(-400px, -100vh, -600px); }
+            0% {
+                top: 0;
+            }
+
+            100% {
+                top: clamp(-400px, -100vh, -600px);
+            }
         }
 
         @keyframes sideSway {
-            0% { margin-left: 0px; }
-            100% { margin-left: clamp(30px, 8vw, 50px); }
+            0% {
+                margin-left: 0px;
+            }
+
+            100% {
+                margin-left: clamp(30px, 8vw, 50px);
+            }
         }
 
         /* Mobile specific adjustments */
@@ -337,19 +358,19 @@
             body {
                 padding: 10px;
             }
-            
+
             .love-title {
                 margin-bottom: 1.5rem;
             }
-            
+
             .envelope-wrapper {
                 margin-bottom: 1.5rem;
             }
-            
+
             .controls {
                 gap: 0.75rem;
             }
-            
+
             #envelope {
                 animation: float 4s ease-in-out infinite;
             }
@@ -357,6 +378,7 @@
 
         /* Dark mode hearts for better visibility */
         @media (prefers-color-scheme: dark) {
+
             .heart:before,
             .heart:after {
                 background: linear-gradient(45deg, #ff8fab, #ff6b9d);
@@ -364,18 +386,19 @@
         }
     </style>
 </head>
+
 <body>
     <h1 class="love-title">💌 Dari anak rpl yang kece</h1>
-    
+
     <div class="envelope-wrapper">
         <div id="envelope" class="close">
             <div class="front flap"></div>
             <div class="front pocket"></div>
             <div class="letter">
                 <div class="words line1">Untukmu Dayana 💕</div>
-                <div class="words line2">Haloo, Dayana aku cuma mau bilang</div>
-                <div class="words line3">aku menyukai mu</div>
-                <div class="words line4">   💖✨</div>
+                <div class="words line2">Haloo, Dayana... ada yang pengen aku jujur</div>
+                <div class="words line3">aku udah suka kamu dari dulu diam-diam</div>
+                <div class="words line4"> 💖✨</div>
                 <div class="signature">With love 💖</div>
             </div>
             <div class="hearts">
@@ -385,7 +408,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="controls">
         <button class="btn" id="open">✉️ Buka</button>
         <button class="btn" id="reset">💌 Tutup</button>
@@ -396,12 +419,12 @@
         const openBtn = document.getElementById('open');
         const resetBtn = document.getElementById('reset');
 
-        openBtn.addEventListener('click', function() {
+        openBtn.addEventListener('click', function () {
             envelope.classList.remove('close');
             envelope.classList.add('open');
         });
 
-        resetBtn.addEventListener('click', function() {
+        resetBtn.addEventListener('click', function () {
             envelope.classList.remove('open');
             envelope.classList.add('close');
         });
@@ -410,11 +433,11 @@
         let touchStartY = 0;
         let touchEndY = 0;
 
-        envelope.addEventListener('touchstart', function(e) {
+        envelope.addEventListener('touchstart', function (e) {
             touchStartY = e.changedTouches[0].screenY;
         });
 
-        envelope.addEventListener('touchend', function(e) {
+        envelope.addEventListener('touchend', function (e) {
             touchEndY = e.changedTouches[0].screenY;
             handleSwipe();
         });
@@ -422,7 +445,7 @@
         function handleSwipe() {
             const swipeThreshold = 50;
             const diff = touchStartY - touchEndY;
-            
+
             if (Math.abs(diff) > swipeThreshold) {
                 if (diff > 0) {
                     // Swipe up - open letter
@@ -437,7 +460,7 @@
         }
 
         // Add click to envelope for easy interaction
-        envelope.addEventListener('click', function() {
+        envelope.addEventListener('click', function () {
             if (envelope.classList.contains('close')) {
                 envelope.classList.remove('close');
                 envelope.classList.add('open');
@@ -448,4 +471,5 @@
         });
     </script>
 </body>
+
 </html>
